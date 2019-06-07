@@ -1,21 +1,28 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Component } from 'react'
+import { View, Text, Platform, StatusBar } from 'react-native';
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import reducers from './reducers'
+import { purple, white } from './util/colors'
+import { Constants } from 'expo'
+import { setLocalNotification } from './util/notification'
+
 
 export default class App extends React.Component {
+  componentDidMount() {
+    setLocalNotification();
+  }
+
   render() {
     return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
+        <Provider store={createStore(reducers)}>
+          <View style={{ flex: 1 }} >
+            <View style={{ backgroundColor: purple, height: Constants.statusBarHeight }}>
+              <StatusBar translucent backgroundColor={purple} barStyle='light-content' />
+            </View>
+            <Text>Main Screen</Text>
+          </View>
+        </Provider>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
