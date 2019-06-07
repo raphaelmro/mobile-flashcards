@@ -14,6 +14,7 @@ import DeckList from "./components/DeckList";
 import NewDeck from "./components/NewDeck";
 import Deck from "./components/Deck";
 import NewCard from "./components/NewCard";
+import Quiz from "./components/Quiz/card";
 import * as Colors from "./util/colors";
 
 const Tabs = createBottomTabNavigator(
@@ -63,6 +64,9 @@ const MainNavigator = createStackNavigator(
     },
     NewCard: {
       screen: NewCard
+    },
+    Quiz: {
+      screen: Quiz
     }
   },
   {

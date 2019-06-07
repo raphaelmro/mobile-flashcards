@@ -26,6 +26,7 @@ class NewDeck extends Component {
     const input = entry.trim();
     addDeck({ title: input });
     this.setState({ text: "" });
+    navigation.navigate("Deck", { title: input, key: navigation.state.key });
   };
 
   render() {
