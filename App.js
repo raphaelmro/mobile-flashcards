@@ -59,9 +59,9 @@ const MainNavigator = createStackNavigator(
       },
     }, {
       navigationOptions: {
-        headerTintColor: Colors.white,
+        headerTintColor: Colors.red,
         headerStyle: {
-          backgroundColor: Colors.gray,
+          backgroundColor: Colors.lightPurp,
           height: 40,
           paddingTop: 0
         },
