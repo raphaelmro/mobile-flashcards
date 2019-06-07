@@ -9,7 +9,7 @@ import {
 import reducers from "./reducers";
 import { purple, white } from "./util/colors";
 import { Constants } from "expo";
-import { FontAwesome, Ionicons } from "@expo/vector-icons";
+import { FontAwesome, Feather, SimpleLineIcons } from '@expo/vector-icons'
 import { setLocalNotification } from "./util/notification";
 import DeckList from "./components/DeckList";
 import NewDeck from "./components/NewDeck";
@@ -18,10 +18,22 @@ import * as Colors from "./util/colors";
 
 const Tabs = createBottomTabNavigator({
   Decks: {
-    screen: DeckList
+    screen: DeckList,
+    navigationOptions: {
+      tabBarLabel: 'Decks',
+      tabBarIcon: ({ tintColor }) => (
+          <SimpleLineIcons name='layers' size={30} color={tintColor} />
+      ),
+    },
   },
   NewDeck: {
-    screen: NewDeck
+    screen: NewDeck,
+    navigationOptions: {
+      tabBarLabel: 'New Deck',
+      tabBarIcon: ({ tintColor }) => (
+          <Feather name='plus-square' size={30} color={tintColor} />
+      ),
+    },
   }
 });
 
