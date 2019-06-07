@@ -1,4 +1,4 @@
-import { RECEIVE_DECKS, NEW_DECK, NEW_CARD, REMOVE_DECK } from "../actions";
+import { RECEIVE_DECKS, NEW_DECK, NEW_CARD } from "../actions";
 import { addEntry } from "../utils/api";
 import _ from "lodash";
 
@@ -51,15 +51,6 @@ function reducer(state = {}, action) {
       return {
         ...state,
         [title]: entry
-      };
-    }
-
-    case REMOVE_DECK: {
-      const { title } = action;
-
-      const decks = _.omit(state, title);
-      return {
-        ...decks
       };
     }
 
