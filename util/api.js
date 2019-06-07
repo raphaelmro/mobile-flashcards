@@ -7,7 +7,7 @@ export function fetchFlashCards() {
         .then(setDummyData)
 }
 
-export function submitEntry ({ key, entry }) {
+export function addEntry ({ key, entry }) {
     return AsyncStorage.mergeItem(DECKS_STORAGE_KEY, JSON.stringify({
         [key]: entry
     }))
