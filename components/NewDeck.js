@@ -32,25 +32,46 @@ class NewDeck extends Component {
   render() {
     const { text } = this.state;
     return (
-      <KeyboardAvoidingView behavior="padding">
-        <Text>New Deck Name</Text>
+      <KeyboardAvoidingView style={styles.container} behavior="padding">
+        <Text style={{ fontSize: 20, color: Colors.purple }}>
+          New Deck Name
+        </Text>
 
         <View>
           <TextInput
-            style={{ backgroundColor: "pink", width: 300, height: 50 }}
+            placeholder="Deck Name"
+            style={styles.textInput}
             underlineColor="green"
             value={text}
             onChangeText={text => this.setState({ text })}
           />
         </View>
         <TouchableOpacity onPress={this.submit}>
-          <Text>Submit</Text>
+          <Text style={{ fontSize: 20, color: Colors.purple }}>Submit</Text>
         </TouchableOpacity>
       </KeyboardAvoidingView>
     );
   }
 }
 
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingTop: 25
+  },
+  textInput: {
+    fontSize: 20,
+    marginTop: 50,
+    marginBottom: 50,
+    borderBottomWidth: 1,
+    borderRadius: 0,
+    width: 300,
+    alignItems: "center",
+    borderColor: Colors.blue
+  }
+});
 const mapStateToProps = state => {
   return {
     decks: state
