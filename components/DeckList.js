@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList, TouchableOpacity, View, Text } from "react-native";
+import { View, Text } from "react-native";
 import { connect } from "react-redux";
 import { AppLoading } from "expo";
 import { receiveDecks } from "../actions";
@@ -33,7 +33,11 @@ class DeckList extends Component {
         {Object.keys(decks).map(deck => (
           <View key={deck}>
             <Text>{decks[deck].title}</Text>
-            <Text>{decks[deck].questions.length} cards</Text>
+            {decks[deck].questions.length > 1 ? (
+              <Text>{decks[deck].questions.length} cards</Text>
+            ) : (
+              <Text>{decks[deck].questions.length} card</Text>
+            )}
           </View>
         ))}
       </View>

@@ -1,5 +1,5 @@
 import { RECEIVE_DECKS, NEW_DECK, NEW_CARD } from "../actions";
-import { addEntry } from "../utils/api";
+import { addEntry } from "../util/api";
 import _ from "lodash";
 
 function reducer(state = {}, action) {
