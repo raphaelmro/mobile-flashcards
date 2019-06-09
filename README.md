@@ -18,7 +18,7 @@ On the end of the game you can check your progress and try again.
 `npm install`
 3. Run **mobile-flashcards**! `npm start`
 
-##Test
+## Test
 **Mobile-flashcards** app was tested on a Samsung S9+(Android) and Genymotion(emulator)! 
 
 ## Contributing
