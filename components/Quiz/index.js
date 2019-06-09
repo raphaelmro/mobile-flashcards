@@ -30,6 +30,12 @@ class Quiz extends Component {
     this.setState({ step: 0, correct: 0 });
   };
 
+  backToDeck = () => {
+    this.props.navigation.navigate("Deck", {
+      title: this.props.deck.title
+    })
+  }
+
   render() {
     const { step, correct, showAnswer } = this.state;
     const { deck } = this.props;
@@ -52,6 +58,8 @@ class Quiz extends Component {
         correct={correct}
         questions={deck.questions.length}
         onRetry={this.resetQuiz}
+        backToDeck={this.backToDeck}
+        deckTitle={deck.title}
       />
     );
   }

@@ -2,16 +2,25 @@ import React, { Component } from "react";
 import { AnimatedCircularProgress } from "react-native-circular-progress";
 import { View, Text, TouchableOpacity } from "react-native";
 import { clearLocalNotification } from "../../util/notification";
+import { StackActions } from "react-navigation";
 import * as Colors from "../../util/colors";
 
-export default class Result extends Component {
+
+class Result extends Component {
   componentDidMount() {
-    clearLocalNotification();
+      clearLocalNotification().then(clearLocalNotification)
+  }
+
+    static navigationOptions = {
+        title: "Score"
+    };
+
+  backToDeck = () => {
+      this.props.backToDeck()
   }
 
   render() {
     const { correct, questions, onRetry } = this.props;
-
     return (
       <View>
         {correct === questions ? (
@@ -32,6 +41,9 @@ export default class Result extends Component {
             {fill => <Text>{Math.round(fill)}</Text>}
           </AnimatedCircularProgress>
         </View>
+        <TouchableOpacity onPress={() => this.backToDeck()}>
+          <Text>Back to Deck</Text>
+        </TouchableOpacity>
 
         <TouchableOpacity onPress={onRetry}>
           <Text>Retry</Text>
@@ -40,3 +52,5 @@ export default class Result extends Component {
     );
   }
 }
+
+export default Result
